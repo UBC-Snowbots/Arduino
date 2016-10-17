@@ -210,6 +210,11 @@ void HardwareSerial::flush()
   // the hardware finished tranmission (TXC is set).
 }
 
+void HardwareSerial::flushRX()
+{
+  _rx_buffer->head = _rx_buffer->tail;
+}
+
 size_t HardwareSerial::write(uint8_t c)
 {
   _written = true;
